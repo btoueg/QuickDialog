@@ -79,6 +79,11 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     QSection *section = [_tableView.root getVisibleSectionForIndex:indexPath.section];
     QElement *element = [section getVisibleElementForIndex: indexPath.row];
+
+    if ([_tableView.quickDialogDelegate respondsToSelector:@selector(cell:willAppearForElement:atIndexPath:)]){
+        [_tableView.quickDialogDelegate cell:cell willAppearForElement:element atIndexPath:indexPath];
+    }
+
     [_tableView.root.appearance cell:cell willAppearForElement:element atIndexPath:indexPath];
 }
 
@@ -88,7 +93,13 @@
         return section.headerView;
 
     QAppearance *appearance = ((QuickDialogTableView *) tableView).root.appearance;
-    return [appearance buildHeaderForSection:section andTableView:(QuickDialogTableView*)tableView andIndex:index];
+    UIView *header = [appearance buildHeaderForSection:section andTableView:(QuickDialogTableView*)tableView andIndex:index];
+    
+    if ([_tableView.quickDialogDelegate respondsToSelector:@selector(header:willAppearForSection:atIndex:)]){
+        [_tableView.quickDialogDelegate header:header willAppearForSection:section atIndex:index];
+    }
+    
+    return header;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)index {
@@ -97,7 +108,12 @@
         return section.footerView;
 
     QAppearance *appearance = ((QuickDialogTableView *) tableView).root.appearance;
-    return [appearance buildFooterForSection:section andTableView:(QuickDialogTableView*)tableView andIndex:index];
+    UIView *footer = [appearance buildFooterForSection:section andTableView:(QuickDialogTableView*)tableView andIndex:index];
+
+    if ([_tableView.quickDialogDelegate respondsToSelector:@selector(footer:willAppearForSection:atIndex:)]){
+        [_tableView.quickDialogDelegate footer:footer willAppearForSection:section atIndex:index];
+    }
+    return footer;
 
 }
 

@@ -147,7 +147,7 @@
         cell.textLabel.text = _title;
         cell.textField.text = [selectedValue description];
         cell.textField.textAlignment = self.appearance.valueAlignment;
-        cell.textField.textColor = self.enabled ? self.appearance.labelColorEnabled : self.appearance.labelColorDisabled;
+        cell.textField.textColor = self.enabled ? self.appearance.valueColorEnabled : self.appearance.valueColorDisabled;
         cell.detailTextLabel.textColor = self.enabled ? self.appearance.entryTextColorEnabled : self.appearance.entryTextColorDisabled;
     }
     cell.imageView.image = _image;

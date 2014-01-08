@@ -12,11 +12,19 @@
 // permissions and limitations under the License.
 //
 
-#import "QuickDialogController.h"
+#import <UIKit/UIKit.h>
 
-@interface QuickDialogController (Loading)
+@class QElement;
+@class QSection;
+
+@protocol QuickDialogDelegate  <NSObject>
 
 
-@property(nonatomic, getter=isLoading) BOOL loading;
+@optional
+
+-(void) cell:(UITableViewCell *)cell willAppearForElement:(QElement *)element atIndexPath:(NSIndexPath *)indexPath;
+
+-(void) header:(UIView *)header willAppearForSection:(QSection *)section atIndex:(NSInteger)indexPath;
+-(void) footer:(UIView *)footer willAppearForSection:(QSection *)section atIndex:(NSInteger)indexPath;
 
 @end

@@ -1,5 +1,6 @@
 #import "QuickDialogWebController.h"
 #import "QuickDialog.h"
+#import "QuickDialogController+Loading.h"
 
 @implementation QuickDialogWebController {
 
@@ -15,7 +16,7 @@
     [self.root bindToObject:[NSDictionary dictionary]];
     [self.quickDialogTableView reloadData];
     [[[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-    [self loading:NO];
+    self.loading = NO;
 }
 
 - (void)presentResult:(NSData *)data {
@@ -27,7 +28,7 @@
         [self.quickDialogTableView reloadData];
     }
 
-    [self loading:NO];
+    self.loading = NO;
 }
 
 - (void)reload {
@@ -50,7 +51,7 @@
         self.url = (NSString *) self.root.object;
 
     if (self.url!=nil){
-        [self loading:YES];
+        self.loading = YES;
         [self reload];
     }
 

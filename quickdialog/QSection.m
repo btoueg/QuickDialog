@@ -56,6 +56,7 @@
     }
     return nil;
 }
+
 - (NSInteger)visibleNumberOfElements
 {
     NSUInteger c = 0;

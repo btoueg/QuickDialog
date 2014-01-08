@@ -12,5 +12,6 @@
 
 - (UIColor *)darkerColor;
 - (UIImage *)imageByDrawingCircleOfColor;
+- (UIColor*)brightenByAmount:(CGFloat)amount;
 
 @end

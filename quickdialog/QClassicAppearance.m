@@ -107,7 +107,7 @@
 
 - (CGFloat)heightForHeaderInSection:(QSection *)section andTableView:(QuickDialogTableView *)tableView andIndex:(NSInteger)index {
 
-     float margin = [self currentGroupedTableViewMarginForTableView:tableView] + 8;
+    float margin = [self currentGroupedTableViewMarginForTableView:tableView] + 8;
 
     if (section.headerView!=nil)
         return section.headerView.bounds.size.height;

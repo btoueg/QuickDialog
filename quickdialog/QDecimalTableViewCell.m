@@ -1,4 +1,4 @@
-//                                
+//
 // Copyright 2011 ESCOZ Inc  - http://escoz.com
 // 
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not use this 
@@ -13,7 +13,7 @@
 //
 
 #import "QDecimalTableViewCell.h"
-#import "QuickDialog.h"
+
 @implementation QDecimalTableViewCell {
     NSNumberFormatter *_numberFormatter;
 }

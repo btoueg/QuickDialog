@@ -33,11 +33,11 @@
         self.root = _controller.root;
         self.deselectRowWhenViewAppears = YES;
 
-        quickDialogDataSource = [[QuickDialogDataSource alloc] initForTableView:self];
-        self.dataSource = quickDialogDataSource;
+        self.quickDialogDataSource = [[QuickDialogDataSource alloc] initForTableView:self];
+        self.dataSource = self.quickDialogDataSource;
 
-        quickDialogDelegate = [[QuickDialogTableDelegate alloc] initForTableView:self];
-        self.delegate = quickDialogDelegate;
+        _quickDialogTableDelegate = [[QuickDialogTableDelegate alloc] initForTableView:self];
+        self.delegate = _quickDialogTableDelegate;
 
         self.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     }
@@ -101,7 +101,6 @@
     super.contentInset = contentInset;
     self.scrollIndicatorInsets = contentInset;
 }
-
 
 - (UITableViewCell *)cellForElement:(QElement *)element {
     if (element.hidden)

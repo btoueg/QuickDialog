@@ -22,9 +22,10 @@
 @interface QBadgeElement : QLabelElement {
 
 @private
-    UIColor *_badgeColor;
     UIColor *_badgeTextColor;
     NSString *_badge;
+@public
+    UIColor *_badgeColor;
 }
 
 @property(nonatomic, retain) UIColor *badgeTextColor;

@@ -37,7 +37,7 @@
 }
 
 
-- (void)loading:(BOOL)visible {
+- (void)setLoading:(BOOL)visible {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = visible;
     UIView *loadingView = [self.quickDialogTableView viewWithTag:1123002];
     if (loadingView==nil){
@@ -62,5 +62,13 @@
                               [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
                          }
                      }];
+}
+
+- (BOOL)isLoading {
+    UIView *loadingView = [self.quickDialogTableView viewWithTag:1123002];
+    if (loadingView==nil){
+        return NO;
+    }
+    return !self.quickDialogTableView.userInteractionEnabled;
 }
 @end
