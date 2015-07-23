@@ -42,6 +42,9 @@
 }
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)path {
+    if(self.onElementClicked) {
+        self.onElementClicked();
+    }
     QMapViewController *mapController = [[QMapViewController alloc] initWithTitle:_title coordinate:_coordinate];
     [controller displayViewController:mapController];
 

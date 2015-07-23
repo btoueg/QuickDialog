@@ -54,6 +54,9 @@
 
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)path {
+    if(self.onElementClicked) {
+        self.onElementClicked();
+    }
     [self performAction];
 	if (_html) {
 		QWebViewController *webController = [[QWebViewController alloc] initWithHTML:_html];
