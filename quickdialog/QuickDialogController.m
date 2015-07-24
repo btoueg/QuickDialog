@@ -208,5 +208,9 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
+- (void) backButtonPressed {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 @end
