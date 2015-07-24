@@ -48,7 +48,7 @@
 #import "QRadioItemElement.h"
 #import "QSelectItemElement.h"
 #import "QTextElement.h"
-#import "QDecimalElement.h"
+#import "QDecimalElement.h"QText
 #import "QSortingSection.h"
 #import "QDateTimeElement.h"
 #import "QBadgeLabel.h"
@@ -68,5 +68,8 @@
 #import "QTextField.h"
 
 //to discuss : define vs. const UIColor
-#define blue_color [UIColor colorWithRed:0.932 green:0.976 blue:1.000 alpha:1.000]
+//#define blue_color [UIColor colorWithRed:0.932 green:0.976 blue:1.000 alpha:1.000]
+
+#define blue_color [UIColor colorWithRed:0.475 green:0.729 blue:0.886 alpha:0.25f]
+
 
