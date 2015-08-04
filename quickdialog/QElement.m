@@ -29,6 +29,7 @@
 @synthesize bind = _bind;
 
 @synthesize onSelected = _onSelected;
+@synthesize onElementClicked = _onElementClicked;
 @synthesize controllerAction = _controllerAction;
 @synthesize object = _object;
 @synthesize height = _height;

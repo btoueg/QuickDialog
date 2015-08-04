@@ -61,7 +61,14 @@
 {
     _viewOnScreen = YES;
     [_textView becomeFirstResponder];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"OK" style:UIBarButtonItemStylePlain target:self action:@selector(backButtonPressed)];
+    self.navigationItem.rightBarButtonItem = rightItem;
+
     [super viewWillAppear:animated];
+}
+
+- (void) backButtonPressed {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -76,7 +83,6 @@
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
-
 
 - (void) resizeForKeyboard:(NSNotification*)aNotification {
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)

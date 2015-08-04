@@ -36,12 +36,15 @@
     BOOL _hidden;
 
     void (^_onSelected)(void);
+    void (^_onElementClicked)(void);
     NSString * _controllerAction;
 }
 
 @property (nonatomic, assign, getter=isEnabled) BOOL enabled;
 
 @property(nonatomic, copy) void (^onSelected)(void);
+@property(nonatomic, copy) void (^onElementClicked)(void);
+
 @property(nonatomic, retain) NSString *controllerAction;
 @property(nonatomic, retain) NSString *controllerAccessoryAction;
 

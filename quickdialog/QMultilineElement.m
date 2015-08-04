@@ -43,7 +43,7 @@
     cell.selectionStyle = self.enabled ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;
     cell.textField.enabled = NO;
     cell.textField.textAlignment = self.appearance.labelAlignment;
-
+    
     return cell;
 }
 
@@ -72,6 +72,9 @@
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         [weakSelf.delegate QEntryDidEndEditingElement:weakSelf andCell:((QEntryTableViewCell *)[tableView cellForElement:weakSelf])];
     };
+    if (self.onElementClicked) {
+        self.onElementClicked();
+    }
     [controller displayViewController:textController withPresentationMode:self.presentationMode];
 }
 

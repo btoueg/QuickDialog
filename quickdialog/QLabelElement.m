@@ -70,6 +70,9 @@
 }
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)path {
+    if(self.onElementClicked) {
+        self.onElementClicked();
+    }
     [super selected:tableView controller:controller indexPath:path];
     if (!self.keepSelected)
         [tableView deselectRowAtIndexPath:path animated:YES];
